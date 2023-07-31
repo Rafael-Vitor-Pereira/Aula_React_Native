@@ -75,7 +75,7 @@ const Cadastro = () => {
 				console.log(response.data)
 				setLoading(false)
 			}).catch((error) => {
-				console.log("Deu erro")
+				console.log(error)
 				setLoading(false)
 			})
 		}
