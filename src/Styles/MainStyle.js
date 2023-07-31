@@ -27,6 +27,10 @@ const styles = StyleSheet.create({
     marginLeft: 15,
     color: '#f00',
     fontSize: 13
+  },
+  loading:{
+    alignSelf: 'center',
+    margin: 10
   }
 });
 
