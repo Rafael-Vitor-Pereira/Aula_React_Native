@@ -7,12 +7,14 @@ import { TextInputMask } from 'react-native-masked-text';
 const Cadastro = () => {
 	const [cpf, setCpf] = useState(null);
 	const [nome, setNome] = useState(null);
+	const [senha, setSenha] = useState(null);
 	const [email, setEmail] = useState(null);
 	const [telefone, setTelefone] = useState(null);
 	const [isSelected, setSelected] = useState(false);
 
 	const [errorCpf, setErrorCpf] = useState(null);
 	const [errorNome, seterrorNome] = useState(null);
+	const [errorSenha, setErrorSenha] = useState(null);
 	const [errorEmail, seterrorEmail] = useState(null);
 	const [errorTelefone, seterrorTelefone] = useState(null);
 
@@ -37,6 +39,10 @@ const Cadastro = () => {
 		if(!TelField.isValid()){
 			seterrorTelefone("Preencha seu Telefone corretamente!");
 			error = true;
+		}
+
+		if(senha == null || senha.length < 6){
+			setErrorSenha("A senha deve conter no mínimo 6 caracteres");
 		}
 
 		return !error;
@@ -65,6 +71,8 @@ const Cadastro = () => {
 				<TextInputMask placeholder='Telefone' keyboardType='phone-pad' type={'cel-phone'} options={{maskType: 'BRL', withDDD: true, dddMask: '(99) '}} value={telefone} onChangeText={value => {setTelefone(value), seterrorTelefone(null)}}  style={styles.maskedInput} ref={(ref) => TelField = ref} />
 			</View>
 			<Text style={styles.errorMessage}>{errorTelefone}</Text>
+
+			<Input placeholder='Senha' onChangeText={value => {setSenha(value), setErrorSenha(null)}} errorMessage={errorSenha} secureTextEntry />
 
 			<CheckBox title="Eu aceito os termos de uso" checkedIcon="check" uncheckedIcon="square-o" checkedColor='green' uncheckedColor='red' checked={isSelected} onPress={() => setSelected(!isSelected)} />
 
