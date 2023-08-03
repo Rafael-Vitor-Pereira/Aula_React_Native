@@ -1,61 +1,66 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Text, View } from 'react-native';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import Perfil from './Perfil';
+import Busca from './Busca';
+import Produtos from './Produtos';
+import Servicos from './Servicos';
+import Cadastrar from './Cadastrar';
 
 const Tab = createBottomTabNavigator();
-
-function Feed(){
-  <View style={{alignItens: 'center', justifyContent: 'center'}}>
-    <Text>Feed</Text>
-  </View>
-}
-
-function Notifications(){
-  <View style={{alignItens: 'center', justifyContent: 'center'}}>
-    <Text>Notifications</Text>
-  </View>
-}
-
-function Profile(){
-  <View style={{alignItens: 'center', justifyContent: 'center'}}>
-    <Text>Profile</Text>
-  </View>
-}
 
 export default function Principal() {
   return (
     <Tab.Navigator
-      initialRouteName="Feed"
+      initialRouteName="Busca"
       screenOptions={{
         tabBarActiveTintColor: '#e91e63',
       }}
     >
       <Tab.Screen
-        name="Feed"
-        component={Feed}
+        name="Busca"
+        component={Busca}
         options={{
-          tabBarLabel: 'Home',
+          tabBarLabel: 'Buscar',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="home" color={color} size={size} />
+            <MaterialCommunityIcons name="account-search" color={color} size={size} />
           ),
         }}
       />
       <Tab.Screen
-        name="Notifications"
-        component={Notifications}
+        name="Produtos"
+        component={Produtos}
         options={{
-          tabBarLabel: 'Updates',
+          tabBarLabel: 'Produtos',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="bell" color={color} size={size} />
-          ),
-          tabBarBadge: 3,
+            <MaterialCommunityIcons name="shopping" color={color} size={size} />
+          )
         }}
       />
       <Tab.Screen
-        name="Profile"
-        component={Profile}
+        name="Servicos"
+        component={Servicos}
         options={{
-          tabBarLabel: 'Profile',
+          tabBarLabel: 'Serviços',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="human-greeting" color={color} size={size} />
+          )
+        }}
+      />
+      <Tab.Screen
+        name="Cadastrar"
+        component={Cadastrar}
+        options={{
+          tabBarLabel: 'Cadastrar',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="plus-circle" color={color} size={size} />
+          )
+        }}
+      />
+      <Tab.Screen
+        name="Perfil"
+        component={Perfil}
+        options={{
+          tabBarLabel: 'Perfil',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="account" color={color} size={size} />
           ),
