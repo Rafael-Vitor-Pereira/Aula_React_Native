@@ -31,6 +31,13 @@ const styles = StyleSheet.create({
   loading:{
     alignSelf: 'center',
     margin: 10
+  },
+  button:{
+    width: '100%',
+    marginTop: 10
+  },
+  cancelButton:{
+    backgroundColor: '#c00'
   }
 });
 
