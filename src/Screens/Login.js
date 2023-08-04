@@ -23,7 +23,7 @@ export default function Login({navigation}) {
       if(response.data.titulo == "Sucesso"){
         navigation.reset({
           index: 0,
-          routes: [{name: "Home"}]
+          routes: [{name: "Principal"}]
         });
       }else{
         Alert.alert(response.data.titulo, response.data.mensagem)
@@ -46,7 +46,7 @@ export default function Login({navigation}) {
       if(response.data.titulo == "Sucesso"){
         navigation.reset({
           index: 0,
-          routes: [{name: "Home"}]
+          routes: [{name: "Principal"}]
         });
         setLoadingToken(false)
       }else{

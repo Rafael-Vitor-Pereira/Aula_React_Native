@@ -1,11 +1,12 @@
-import { ActivityIndicator, ScrollView, View } from 'react-native'
+import { ActivityIndicator, View } from 'react-native'
 import React, { useState } from 'react'
 import styles from '../Styles/MainStyle';
 import { Button, CheckBox, Icon, Input, Text } from 'react-native-elements';
 import { TextInputMask } from 'react-native-masked-text';
 import userService from '../Services/usuarioService';
-import { Button as PaperButton, Dialog, Portal, PaperProvider } from 'react-native-paper';
+import { PaperProvider } from 'react-native-paper';
 import CustomDialog from '../Components/CustomDialog'
+import { ScrollView } from 'react-native-gesture-handler';
 
 const Cadastro = () => {
 	const [cpf, setCpf] = useState(null);
@@ -103,7 +104,7 @@ const Cadastro = () => {
 	return (
 		<KeyboardAvoidingView behavior={Platform.OS == "ios" ? "padding": "height"} style={[styles.container, specificStyle.specificContainer]} keyboardVerticalOffset={80}>
 			<PaperProvider>
-				<View style={styles.container}>
+				<ScrollView style={{width: '100%'}}>
 					<Text h3>Cadastre-se</Text>
 
 					<Input placeholder='E-mail' onChangeText={value => {setEmail(value), seterrorEmail(null)}} keyboardType='email-address' returnKeyType='done' errorMessage={errorEmail} />
@@ -130,7 +131,7 @@ const Cadastro = () => {
 						? <ActivityIndicator size={32} color='#000' style={styles.loading} />
 						: <Button icon={<Icon name='check' size={15} color="white" />} title=" Salvar" onPress={() => salvar()} /> 			
 					}
-				</View>
+				</ScrollView>
 
 				{visibleDialog && <CustomDialog titulo={titulo} mensagem={mensagem} tipo={tipo} visible={visibleDialog} onClose={hideDialog} />}
 			</PaperProvider>

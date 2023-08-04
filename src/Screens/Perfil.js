@@ -4,8 +4,8 @@ import styles from '../Styles/MainStyle'
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Perfil({navigation}){
-	const Logout = (navigation) => {
-    AsyncStorage.removeItem("TOKEN").then(() => {
+	const Logout = () => {
+    AsyncStorage.setItem("TOKEN", "").then(() => {
 			navigation.reset({
 				index: 0,
 				routes: [{name: "Login"}]
